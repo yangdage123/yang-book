@@ -1,6 +1,6 @@
 # y-logger
 
-> nodejs log的小工具
+> [nodejs log的小工具](https://github.com/yangdage123/y-logger)
 
 ## 由来
 > 在做`webpack-demo`的时候进行start，发现控制台有不同的颜色。所以google了一下，于是一发不可收拾。

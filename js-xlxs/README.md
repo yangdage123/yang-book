@@ -1,5 +1,5 @@
 # js-xlxs
-> 读取excel文件的插件
+> 读取excel文件的插件，[demo](https://github.com/yangdage123/read-xlxs)
 
 ## 安装
 
