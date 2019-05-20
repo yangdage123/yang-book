@@ -6,5 +6,6 @@
 * [.npmrc文件](npmrc/README.md)
 * [js-xlxs](js-xlxs/README.md)
 * [y-logger](y-logger/README.md)
+* [js](js/README.md)
 * [todo](todo/README.md)
 
