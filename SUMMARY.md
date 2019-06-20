@@ -2,6 +2,8 @@
 
 * [Introduction](README.md)
 * [mac指令](mac指令.md)
+* [git操作](git.md)
+* [其他](other.md)
 * [2018](2018/README.md)
 * [2019](2019/README.md)
     * [.npmrc文件](2019/npmrc文件.md)

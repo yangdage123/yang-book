@@ -26,3 +26,22 @@
 	[JS 监听浏览器各个标签间的切换](https://www.yduba.com/qianduan-1491588986.html)
 实现参考：
 	[knex.js中文文档-查询](https://www.songxingguo.com/2018/06/30/knex.js-query/)
+
+
+## 在输入框内进行光标的移动
+> 在onfocus的时候移动`selectionStart`和`selectionEnd`
+
+```
+	function onFocus (e) {
+		// 获取触发事件的DOM
+		const el = e.target;
+		const len = el.value.length;
+		if (typeof el.seletionStart === 'number' && typeof el.seletionEnd === 'number) {
+			// 平时所见的光标其实是由两部分组成的，即selectionStart和selectionEnd，一般时候这两个是相等的
+			// 但在选中一段文字，全选时，他们的差值就是所选文字的个数
+			el.selectionStart = len;
+			el.selectionEnd = len;
+		}
+	}
+```
+copy自[csdn](https://blog.csdn.net/m0_37582289/article/details/78968251)
