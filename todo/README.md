@@ -9,6 +9,8 @@
 *	[尝试写一个webpack的plugin](https://webpack.js.org/contribute/writing-a-plugin/)
 *	eslint的配置和文档
 *	babel的配置和文档
+*	一个水印的工具
+*	一个拷贝的功能
 *	[html2canvans](https://juejin.im/post/5bcdac8d6fb9a05d3017910d)
 *	TypeScript的了解(ts，tsx)
 *	vue技术内幕的学习和总结
