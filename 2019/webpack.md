@@ -129,3 +129,46 @@ resolve.externals
 ````
 ## webpack-parallel-uglify-plugin
 > 代码优化压缩
+
+````js
+	const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
+
+	module.exorts = {
+		plugins: [
+			// 使用 ParallelUglifyPlugin 压缩混淆代码
+			new ParallelUglifyPlugin({
+				// 传给 UglifyJS 参数
+				uglifyJS: {
+					output: {
+						// 是否输出 可读性较强的代码，默认为true
+						beautify: false,
+						// 是否输出 注释，默认为true
+						comments: false,
+					},
+					compress: {
+						// 是否在UglifyJS删除无用代码的时候输出警告信息，默认为true
+						warning: false,
+						// 是否删除代码中所有的console语句，默认false
+						drop_console: true,
+						// 是否折叠变量，例：var x = 1; y = x;转换成 y = 1，默认为false
+						collapse_vars: true,
+						// 是否提取出现多次但是没被定义成常量引用的值，例：x = 'XXX'; y = 'XXX';转换成 const a = 'XXX'; x = a; y = a;默认为false
+						reduce_vars: true,
+					}
+				}
+			})
+		]
+	}
+````
+
+ParallelUglifyPlugin的其他配置参数
+属性 | 默认值 | 描述
+ --- | --- | --- 
+ test | /.js$/ | 使用正则匹配需要被ParallelUglifyPlugin处理的文件
+ include | 空 | 使用正则去匹配需要被ParallelUglifyPlugin处理的文件
+ exclude | 空 | 使用正则去匹配不需要被ParallelUglifyPlugin处理的文件
+ cacheDir | 不缓存 | 缓存处理后的结果，下次遇到一样的输入时直接从缓存中获取处理后的结果并返回，cacheDir 用于配置缓存存放的目录路径。
+ workerCount | 当前电脑CPU核数减去1 | 开启几个子进程去并发的执行
+ sourceMap | 不生成 | 否为处理后的代码生成对应的Source Map，开启后耗时会大大增加，一般不会将处理后的代码的sourceMap发送给网站用户的浏览器。
+
+
