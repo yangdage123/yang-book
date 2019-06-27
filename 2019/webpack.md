@@ -103,6 +103,38 @@ resolve.externals
 	}
 ````
 
+## devServer
+
+配置参数
+属性 | 默认值 | 描述
+ --- | --- | --- 
+ host | localhost | 指定使用一个 host。
+ contentBase | 空 | 告诉服务器从哪个目录中提供内容。
+ port | ... | ...
+ hot | false | 热更新
+ headers | ... | ...
+ before | ... | 在服务内部的所有其他中间件之前， 提供执行自定义中间件的功能。 这可以用来配置自定义处理程序
+ compress | ... | 一切服务都启用 gzip 压缩
+ disableHostCheck | ... | 绕过主机检查
+ https | false | 启动https服务
+ 
+ 
+ ### https
+ 
+ ````js
+ 	module.exports = {
+ 		devServer: {
+ 			// 可以直接https: true 或者自己提供https证书
+ 			https: {
+ 				key: fs.readFileSync('/path/to/server.key'),
+ 				cert: fs.readFileSync('/path/to/server.cert'),
+ 				ca: fs.readFileSync('/path/to/ca.pem'),
+ 			}
+ 		}
+ 	}
+ ````
+ 
+
 ## extract-text-webpack-plugin
 > 打包项目中所有css
 
@@ -147,7 +179,7 @@ resolve.externals
 					},
 					compress: {
 						// 是否在UglifyJS删除无用代码的时候输出警告信息，默认为true
-						warning: false,
+						warnings: false,
 						// 是否删除代码中所有的console语句，默认false
 						drop_console: true,
 						// 是否折叠变量，例：var x = 1; y = x;转换成 y = 1，默认为false
@@ -169,6 +201,8 @@ ParallelUglifyPlugin的其他配置参数
  exclude | 空 | 使用正则去匹配不需要被ParallelUglifyPlugin处理的文件
  cacheDir | 不缓存 | 缓存处理后的结果，下次遇到一样的输入时直接从缓存中获取处理后的结果并返回，cacheDir 用于配置缓存存放的目录路径。
  workerCount | 当前电脑CPU核数减去1 | 开启几个子进程去并发的执行
- sourceMap | 不生成 | 否为处理后的代码生成对应的Source Map，开启后耗时会大大增加，一般不会将处理后的代码的sourceMap发送给网站用户的浏览器。
+ sourceMap | false | 否为处理后的代码生成对应的Source Map，开启后耗时会大大增加，一般不会将处理后的代码的sourceMap发送给网站用户的浏览器。(可以查看压缩后的代码在源代码的位置)
+
+ 
 
 
